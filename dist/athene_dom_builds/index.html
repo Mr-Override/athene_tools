@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script src="AtheneBuilder.dom.min.js"></script>
+<script>
+
+	function card(title, content) {
+		return div(
+			h1({innerText: title}),
+			p({innerText: content})
+		)
+	}
+
+	scaffold(
+			header(
+				nav({id: "navbar"})
+			),
+			main(
+				h1({innerText: "hello world"}),
+				card("hello", "this is a card"),
+				card("fuck you", "number 2"),
+				button({
+					innerText: "click me", $on: {
+						listenFor: "click", thenDo: () => {
+							console.log("hello")
+						}
+					}
+				})
+			),
+			footer()
+	)
+</script>
+</body>
+</html>
